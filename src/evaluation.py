@@ -18,3 +18,10 @@ def mean_average_precision(recommended, relevant):
 # Example: Click-through Rate (CTR)
 def click_through_rate(clicks, impressions):
     return clicks / impressions
+
+
+# function to run evaluations after generating recommendations
+def evaluate_recommendations(recommended, relevant, impressions, clicks):
+    ctr = click_through_rate(clicks, impressions)
+    map_score = mean_average_precision(recommended, relevant)
+    return {"CTR": ctr, "MAP": map_score}
